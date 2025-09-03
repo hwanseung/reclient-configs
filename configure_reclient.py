@@ -272,6 +272,9 @@ class ReclientConfigurator:
             rewrapper_cfg_file = f'{Paths.script_dir}/{rewrapper_cfg_fname}'
         rewrapper_cfg = ReclientCfg.parse_from_file(rewrapper_cfg_file)
 
+        # ignore exsist "platform" value of chromium liunx
+        del rewrapper_cfg["platform"]
+
         # Merge with our configs.
         source_cfg_paths = [
             f'{Paths.script_dir}/{tool}/rewrapper_base.cfg',
